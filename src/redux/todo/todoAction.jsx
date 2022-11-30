@@ -1,8 +1,15 @@
-const addTodo = (todos, date) => {
+const addTodo = (id, todos, date) => {
   return {
     type: "ADD",
-    payload: { todos, date },
+    payload: { id, todos, date },
   };
 };
 
-export { addTodo };
+const removeTodo = (id) => {
+  return {
+    type: "REMOVE",
+    payload: id,
+  };
+};
+
+export { addTodo, removeTodo };

@@ -1,17 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+// Action
+import { removeTodo } from "../../redux/todo/todoAction";
 
 const Task = () => {
   const state = useSelector((state) => state.todoState);
-
+  const dispatch = useDispatch();
   console.log(state.todos);
+
+  const removeHandler = (id) => {
+    dispatch(removeTodo(id));
+  };
 
   return (
     <div>
       {state.todos.map((item) => (
-        <div key={Math.random()}>
+        <div key={item.id}>
           <span>{item.todos}</span>
           <span>{item.date}</span>
+          <button onClick={() => removeHandler(item.id)}>remove</button>
         </div>
       ))}
     </div>

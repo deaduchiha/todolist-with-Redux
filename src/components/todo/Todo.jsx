@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 // Action
 import { addTodo } from "../../redux/todo/todoAction";
+import { baseNumber } from "../../redux/todo/todoReducer";
 
 const Todo = () => {
   const date = new Date().toLocaleDateString("fa-IR-u-nu-latn");
@@ -17,9 +18,8 @@ const Todo = () => {
   };
 
   const submitHandler = () => {
-    dispatch(addTodo(value, todayTime));
+    dispatch(addTodo(baseNumber, value, todayTime));
     setValue("");
-    console.log(todayTime);
   };
 
   return (
