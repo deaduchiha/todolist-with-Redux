@@ -1,7 +1,7 @@
-const addTodo = (id, todos, date) => {
+const addTodo = (id, value, date) => {
   return {
     type: "ADD",
-    payload: { id, todos, date },
+    payload: { id, value, date, done: true },
   };
 };
 
@@ -12,4 +12,11 @@ const removeTodo = (id) => {
   };
 };
 
-export { addTodo, removeTodo };
+const doneTodo = (id) => {
+  return {
+    type: "DONE",
+    payload: id,
+  };
+};
+
+export { addTodo, removeTodo, doneTodo };
